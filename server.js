@@ -1,9 +1,15 @@
 const express = require ('express');
+const path = require ('path');
 const app = express();
+
+// path implimentation important 
+app.use(express.static(path.join(__dirname,'public')));
+
+app.set('view engine', 'ejs');
 
 
 app.get('/', (req , res) => {
-    res.end('this server is running at 3005')
+    res.render('/public/login.html')
 });
 
 
