@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/', (req , res) => {
     res.end('this server is running at 3005')
-})
+});
 
 
 app.listen(3005 , () => {
