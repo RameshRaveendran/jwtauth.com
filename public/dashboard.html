@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    }
+
+    .dashboard-container {
+      background: #fff;
+      padding: 30px;
+      width: 380px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .dashboard-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h4 {
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: #4e54c8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #3b40a4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+    <h2>Dashboard</h2>
+
+    <div class="card">
+      <h4>User</h4>
+      <p>Welcome, Demo User</p>
+    </div>
+
+    <div class="card">
+      <h4>Status</h4>
+      <p>Logged in successfully</p>
+    </div>
+
+    <div class="card">
+      <h4>Project</h4>
+      <p>JWT Authentication Learning Project</p>
+    </div>
+
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      Swal.fire({
+        icon: "warning",
+        title: "Logout?",
+        text: "Do you really want to logout?",
+        showCancelButton: true,
+        confirmButtonColor: "#4e54c8",
+        cancelButtonColor: "#999",
+        confirmButtonText: "Yes, Logout"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            "Logged Out",
+            "You have been logged out successfully",
+            "success"
+          ).then(() => {
+            console.log("Redirect to login page");
+            // window.location.href = "login.html";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
