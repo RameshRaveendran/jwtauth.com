@@ -12,6 +12,9 @@ const app = express();
 app.get('/',(req , res) => {
     res.send('server is live')
 });
+app.use(express.json());
+// 🔴 THIS LINE IS MANDATORY
+app.use("/auth", require("./routes/auth.routes"));
 
 // db calling allways add top of the server
 connectDB();
